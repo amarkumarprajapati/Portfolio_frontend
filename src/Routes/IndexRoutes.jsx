@@ -7,6 +7,7 @@ import Hero from '../Contailer/Hero'
 const IndexRoutes = () => {
   return (
     <div>
+      <Navbar/>
       <Hero/>
     </div>
   );

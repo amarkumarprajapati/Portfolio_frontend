@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "../Components/Navbar";
 import { SocialIcon } from "react-social-icons";
 import Services from "./Services";
 
@@ -7,7 +6,6 @@ const Hero = () => {
   return (
     <div>
       <div>
-        <Navbar />
       </div>
       <div className="flex m-auto w-fit py-5">
         <div className="">
