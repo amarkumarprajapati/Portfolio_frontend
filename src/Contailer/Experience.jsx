@@ -26,7 +26,7 @@ const Experience = () => {
               </h1>
               <h1 class="text-3xl font-bold">LEAD DEVELOPER</h1>
               <p class="text-2xl">Blockdots, London</p>
-            </div>
+            </div> 
             <div className="bg-white w-[550px] px-10 py-8 justify-center items-center rounded-3xl">
               <h1 className="text-blue-800 font-bold text-3xl justify-center">
                 2022 - <span>Present</span>
