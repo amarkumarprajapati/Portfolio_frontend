@@ -14,7 +14,7 @@ const Skills = () => {
       </div>
       <div className="flex bg-[#F6F3FC]">
         <div className="flex w-fit m-auto flex-row gap-24 py-10 ">
-          <div className=" w-fit m-auto bg-white px-12 py-5 rounded-3xl">
+          <div className=" w-fit m-auto bg-white hover:bg-violet-800 hover:text-white px-12 py-5 rounded-3xl">
             <div className="flex flex-col ">
               <img
                 src="/src/Assects/images/figma.png"
@@ -23,7 +23,7 @@ const Skills = () => {
               />
             </div>
             <div className="mt-4">
-              <p className="text-violet-700">Figma</p>
+              <p className="text-violet-700 hover:text-white">Figma</p>
             </div>
           </div>
           <div className=" w-fit m-auto bg-white px-12 py-5 rounded-3xl ">
