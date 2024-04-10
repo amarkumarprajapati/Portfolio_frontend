@@ -89,3 +89,22 @@
 .text-2xl {
   font-size: 1.5rem;
 }
+
+/* div image */
+.image{
+  background-image: url('/src/Assects/images/5075065.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.image1{
+  background-image: url('/src/Assects/images/woman-sportswear-using-virtual-reality-goggles.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.image2{
+  background-image: url('/src/Assects/images/man-with-futuristic-device-copy-space.jpg');
+  background-position: center;
+  background-size: cover;
+}
