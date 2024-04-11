@@ -9,20 +9,18 @@ import Blogs from "../Contailer/Blogs";
 import Connect from "../Contailer/Connect";
 import Footer from "../Contailer/Footer";
 
-
-
 const IndexRoutes = () => {
   return (
     <div>
       <Navbar />
       <Hero />
-      <Services/>
+      <Services />
       <Works />
-      <Experience/>
+      <Experience />
       <Skills />
-      <Blogs/>
-      <Connect/>
-      <Footer/>
+      <Blogs />
+      <Connect />
+      <Footer />
     </div>
   );
 };
