@@ -33,7 +33,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="bg-black mt-10 rounded-lg">
+        <div className="bg-black mt-10 px-5 py-10 rounded-lg rotate-div ">
           <img src="/src/Assects/images/myimage.png" alt="image" />
         </div>
       </div>
@@ -42,23 +42,22 @@ const Hero = () => {
         <div className="flex justify-center items-center flex-row gap-40 py-32 text-gradient">
           <div className=" text-violet-800 flex flex-row gap-2 items-center">
             <h1 className="text-7xl font-bold ">14</h1>
-            <p className="w-24 text-sm font-bold ">Years of Experience</p>
+            <p className="w-24 text-lg mx-2 font-bold ">Years of Experience</p>
           </div>
           <div className=" text-violet-800 flex flex-row gap-2 items-center">
             <h1 className="text-7xl font-bold ">14</h1>
-            <p className="w-24 text-sm font-bold ">Years of Experience</p>
+            <p className="w-24 text-lg mx-2 font-bold ">Project Completed</p>
           </div>
           <div className=" text-violet-800 flex flex-row gap-2 items-center">
             <h1 className="text-7xl font-bold ">14</h1>
-            <p className="w-24 text-sm font-bold ">Years of Experience</p>
+            <p className="w-24 text-lg font-bold ">Happy Clients</p>
           </div>
           <div className=" text-violet-800 flex flex-row gap-2 items-center">
             <h1 className="text-7xl font-bold ">14</h1>
-            <p className="w-24 text-sm font-bold ">Years of Experience</p>
+            <p className="w-24 text-lg mx-2 font-bold ">Years of Experience</p>
           </div>
         </div>
       </div>
-  
     </div>
   );
 };

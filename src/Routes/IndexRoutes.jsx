@@ -7,6 +7,7 @@ import Experience from "../Contailer/Experience";
 import Services from "../Contailer/Services";
 import Blogs from "../Contailer/Blogs";
 import Connect from "../Contailer/Connect";
+import Footer from "../Contailer/Footer";
 
 
 
@@ -15,12 +16,13 @@ const IndexRoutes = () => {
     <div>
       <Navbar />
       <Hero />
-      <Works />
       <Services/>
+      <Works />
       <Experience/>
       <Skills />
       <Blogs/>
       <Connect/>
+      <Footer/>
     </div>
   );
 };

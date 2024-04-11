@@ -108,3 +108,9 @@
   background-position: center;
   background-size: cover;
 }
+
+/* Rotets */
+
+.rotate-div {
+  transform: rotate(6deg); /* Adjust the angle as needed */
+}

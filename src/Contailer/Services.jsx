@@ -19,7 +19,7 @@ const Services = () => {
     <div>
       <div className="bg-[#F6F3FC]">
         <div className=" text-center px-10 py-10">
-          <h1 className="text-5xl py-10 text-gradient font-bold">
+          <h1 className="text-5xl text-gradient font-bold px-5 py-10">
             My Quality Services
           </h1>
           <p className=" text-sm font-semibold w-[35%] m-auto ">

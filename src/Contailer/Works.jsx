@@ -9,18 +9,18 @@ const Works = () => {
   return (
     <div>
       <div>
-        <div className="text-center">
-          <h1 className="text-5xl py-10 text-blue-800 font-bold">
+        <div className=" flex flex-col gap-4">
+          <h1 className="text-5xl py-10 mt-5 text-blue-800 font-bold text-center">
             My Quality Services
           </h1>
-          <p className="text-sm font-semibold w-[35%] m-auto">
+          <p className="w-[43%] text-lg text-center  m-auto">
             We put your ideas and thus your wishes in the form of a unique web
             project that inspires you and your customers.
           </p>
         </div>
       </div>
       <div>
-        <div className="justify-center items-center">
+        <div className="justify-center items-center px-10 py-10">
           <div className="flex justify-center items-center rounded-full flex-row gap-7 w-fit px-2 m-auto bg-[#F6F3FC]">
             {tabData.map((tab) => (
               <motion.button
@@ -28,7 +28,7 @@ const Works = () => {
                 className={`mr-2 rounded-full py-5 focus:outline-none ${
                   activeTab === tab.id
                     ? "bg-violet-700 text-white"
-                    : "bg-gray-200 text-gray-700"
+                    : " text-gray-700"
                 }`}
                 onClick={() => setActiveTab(tab.id)}
                 whileHover={{ scale: 1.05 }}
@@ -38,7 +38,7 @@ const Works = () => {
               </motion.button>
             ))}
           </div>
-          <div className="bg-white p-4">
+          <div className="bg-white px-5 py-16">
             <AnimatePresence>
               {tabData.map(
                 (tab) =>

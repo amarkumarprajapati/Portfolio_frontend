@@ -5,8 +5,8 @@ const Navbar = () => {
     <div>
       <div>
         <div className="justify-between items-center flex px-10 py-10 ">
-          <div className=" flex justify-center items-center flex-row gap-5 m-5 mx-28 font-semibold">
-            <img src="/src/Assects/images/1.png" className="w-16" alt="" />
+          <div className=" flex justify-center items-center flex-row gap-5  mx-28 font-semibold">
+            <img src="/src/Assects/images/newlogo.png" className="w-16" alt="" />
             <h1>Amarkumarprajapati@gmail.com</h1>
           </div>
           <div className="flex flex-row gap-5 justify-center items-center mx-24">
