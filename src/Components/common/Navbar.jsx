@@ -14,6 +14,8 @@ const Navbar = () => {
     visible: { width: "100%" }
   };
 
+ 
+
   return (
     <div>
       <div>
@@ -34,7 +36,7 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 className={`text-lg list-none ${
                   activeSection === "Services"
-                    ? "border-b-2 border-blue-500 text-2xl text-blue-900"
+                    ? "border-b-2 border-blue-500  text-blue-900"
                     : ""
                 }`}
                 onClick={() => handleSectionClick("Services")}
@@ -47,7 +49,7 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 className={`text-lg list-none ${
                   activeSection === "Works"
-                    ? "border-b-2 border-blue-500 text-2xl text-blue-900"
+                    ? "border-b-2 border-blue-500 text-blue-900"
                     : ""
                 }`}
                 onClick={() => handleSectionClick("Works")}
@@ -60,7 +62,7 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 className={`text-lg list-none ${
                   activeSection === "Resume"
-                    ? "border-b-2 border-blue-500 text-2xl text-blue-900"
+                    ? "border-b-2 border-blue-500 text-blue-900"
                     : ""
                 }`}
                 onClick={() => handleSectionClick("Resume")}
@@ -73,7 +75,7 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 className={`text-lg list-none ${
                   activeSection === "Skills"
-                    ? "border-b-2 border-blue-500 text-2xl text-blue-900"
+                    ? "border-b-2 border-blue-500  text-blue-900"
                     : ""
                 }`}
                 onClick={() => handleSectionClick("Skills")}
@@ -86,7 +88,7 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 className={`text-lg list-none ${
                   activeSection === "Testimonials"
-                    ? "border-b-2 border-blue-500 text-2xl text-blue-900"
+                    ? "border-b-2 border-blue-500 text-blue-900"
                     : ""
                 }`}
                 onClick={() => handleSectionClick("Testimonials")}
@@ -99,7 +101,7 @@ const Navbar = () => {
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 className={`text-lg list-none ${
                   activeSection === "Contact"
-                    ? "border-b-2 border-blue-500 text-2xl text-blue-900"
+                    ? "border-b-2 border-blue-500 text-blue-900"
                     : ""
                 }`}
                 onClick={() => handleSectionClick("Contact")}
