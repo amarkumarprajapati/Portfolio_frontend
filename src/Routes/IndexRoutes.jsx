@@ -18,10 +18,10 @@ const IndexRoutes = () => {
   useEffect(() => {
     const checkServerStatus = async () => {
       try {
-        await fetch('/api/server');
+        await fetch("/api/server");
         setServerStarting(false);
       } catch (error) {
-        console.error('Failed to start server:', error);
+        console.error("Failed to start server:", error);
       }
     };
 
@@ -31,10 +31,8 @@ const IndexRoutes = () => {
   return (
     <div>
       {serverStarting ? (
-        // Render a loading animation or message while the server is starting
         <div>
           <h1>Server is starting...</h1>
-          {/* Add your loading animation or message here */}
         </div>
       ) : (
         <Router>
