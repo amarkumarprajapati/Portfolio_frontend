@@ -116,3 +116,10 @@
 .rotate-div {
   transform: rotate(6deg); 
 }
+
+
+
+/* styles.css */
+.scroll-behavior-smooth {
+  scroll-behavior: smooth;
+}

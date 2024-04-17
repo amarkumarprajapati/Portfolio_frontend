@@ -1,8 +1,20 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { showToast } from "../../utils/tostify";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Services");
+  let navigate = useNavigate();
+
+  function hireme() {
+    if (window.location.pathname !== "/") {
+      showToast();
+    } else {
+      navigate("/contact");
+    }
+  }
 
   const handleSectionClick = (sectionName) => {
     setActiveSection(sectionName);
@@ -11,10 +23,8 @@ const Navbar = () => {
 
   const underlineVariants = {
     hidden: { width: 0 },
-    visible: { width: "100%" }
+    visible: { width: "100%" },
   };
-
- 
 
   return (
     <div>
@@ -22,8 +32,11 @@ const Navbar = () => {
         <div className="justify-between items-center flex px-10 py-10 ">
           <div className=" flex justify-center items-center flex-row gap-5  mx-28 font-semibold">
             <img
+              onClick={() => {
+                navigate("/");
+              }}
               src="/src/Assects/images/newlogo.png"
-              className="w-16"
+              className="w-16 cursor-pointer"
               alt=""
             />
             <h1>Amarkumarprajapati@gmail.com</h1>
@@ -39,8 +52,7 @@ const Navbar = () => {
                     ? "border-b-2 border-blue-500  text-blue-900"
                     : ""
                 }`}
-                onClick={() => handleSectionClick("Services")}
-              >
+                onClick={() => handleSectionClick("Services")}>
                 Services
               </motion.li>
               <motion.li
@@ -52,8 +64,7 @@ const Navbar = () => {
                     ? "border-b-2 border-blue-500 text-blue-900"
                     : ""
                 }`}
-                onClick={() => handleSectionClick("Works")}
-              >
+                onClick={() => handleSectionClick("Works")}>
                 Works
               </motion.li>
               <motion.li
@@ -65,8 +76,7 @@ const Navbar = () => {
                     ? "border-b-2 border-blue-500 text-blue-900"
                     : ""
                 }`}
-                onClick={() => handleSectionClick("Resume")}
-              >
+                onClick={() => handleSectionClick("Resume")}>
                 Resume
               </motion.li>
               <motion.li
@@ -78,8 +88,7 @@ const Navbar = () => {
                     ? "border-b-2 border-blue-500  text-blue-900"
                     : ""
                 }`}
-                onClick={() => handleSectionClick("Skills")}
-              >
+                onClick={() => handleSectionClick("Skills")}>
                 Skills
               </motion.li>
               <motion.li
@@ -91,8 +100,7 @@ const Navbar = () => {
                     ? "border-b-2 border-blue-500 text-blue-900"
                     : ""
                 }`}
-                onClick={() => handleSectionClick("Testimonials")}
-              >
+                onClick={() => handleSectionClick("Testimonials")}>
                 Testimonials
               </motion.li>
               <motion.li
@@ -104,13 +112,13 @@ const Navbar = () => {
                     ? "border-b-2 border-blue-500 text-blue-900"
                     : ""
                 }`}
-                onClick={() => handleSectionClick("Contact")}
-              >
+                onClick={() => handleSectionClick("Contact")}>
                 Contact
               </motion.li>
-              
             </ul>
-            <button className="bg-gradient-to-r from-blue-500 to-blue-800 text-white py-3 w-[150px] px-10 rounded-full">
+            <button
+              onClick={hireme}
+              className="bg-gradient-to-r from-blue-500 to-blue-800 text-white py-3 w-[150px] px-10 rounded-full">
               Hire Me
             </button>
           </div>

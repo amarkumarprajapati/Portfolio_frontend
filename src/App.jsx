@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div ref={containerRef} style={{  scrollBehavior: 'smooth' }}>
-      <div style={{ height: '200vh' }}>
+      <div>
         <IndexRoutes />
       </div>
     </div>

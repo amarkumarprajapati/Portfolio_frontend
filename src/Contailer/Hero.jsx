@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { SocialIcon } from "react-social-icons";
 import Services from "./Services";
 import profileimage from '/src/Assects/images/myimage.png'
 
 const Hero = () => {
+
+
+
+
   return (
     <div>
       <div></div>

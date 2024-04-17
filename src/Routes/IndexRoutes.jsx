@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Hero from "../Contailer/Hero";
 import Works from "../Contailer/Works";
 import Skills from "../Contailer/Skills";
@@ -10,32 +10,64 @@ import Navbar from "../Components/common/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Contact from "../Contailer/contact me/Contact";
 import Footer from "../Contailer/Footer";
+import NavbarRes from "../Components/common/NavbarRes";
 
 const IndexRoutes = () => {
+  const [serverStarting, setServerStarting] = useState(true);
+
+  useEffect(() => {
+    const checkServerStatus = async () => {
+      try {
+        await fetch('/api/server');
+        setServerStarting(false);
+      } catch (error) {
+        console.error('Failed to start server:', error);
+      }
+    };
+
+    checkServerStatus();
+  }, []);
+
   return (
     <div>
-      
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <div>
-                <Hero />
-                <Navbar />
-                <Hero />
-                <Services />
-                <Works />
-                <Experience />
-                <Skills />
-                <Blogs />
-                <Connect />
-              </div>
-            }
-          />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </Router>
+      {serverStarting ? (
+        // Render a loading animation or message while the server is starting
+        <div>
+          <h1>Server is starting...</h1>
+          {/* Add your loading animation or message here */}
+        </div>
+      ) : (
+        <Router>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div>
+                  <Navbar />
+                  <Hero />
+                  <Services />
+                  <Works />
+                  <Experience />
+                  <Skills />
+                  <Blogs />
+                  <Connect />
+                  <Footer />
+                </div>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <div>
+                  <NavbarRes />
+                  <Contact />
+                  <Footer />
+                </div>
+              }
+            />
+          </Routes>
+        </Router>
+      )}
     </div>
   );
 };
