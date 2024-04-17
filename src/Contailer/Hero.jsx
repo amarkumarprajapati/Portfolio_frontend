@@ -1,6 +1,7 @@
 import React from "react";
 import { SocialIcon } from "react-social-icons";
 import Services from "./Services";
+import profileimage from '/src/Assects/images/myimage.png'
 
 const Hero = () => {
   return (
@@ -34,7 +35,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="bg-black mt-10 px-5 py-10 rounded-lg rotate-div ">
-          <img src="/src/Assects/images/myimage.png" alt="image" />
+          <img src={profileimage} alt="image" />
         </div>
       </div>
       {/* section - 2 - experience */}
