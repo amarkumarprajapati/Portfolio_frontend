@@ -72,7 +72,7 @@ const Navbar = () => {
                 variants={underlineVariants}
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 className={`text-lg list-none ${
-                  activeSection === "Resume"
+                  activeSection === "Skills"
                     ? "border-b-2 border-blue-500 text-2xl text-blue-900"
                     : ""
                 }`}
@@ -85,7 +85,7 @@ const Navbar = () => {
                 variants={underlineVariants}
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 className={`text-lg list-none ${
-                  activeSection === "Resume"
+                  activeSection === "Testimonials"
                     ? "border-b-2 border-blue-500 text-2xl text-blue-900"
                     : ""
                 }`}
@@ -98,7 +98,7 @@ const Navbar = () => {
                 variants={underlineVariants}
                 transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 className={`text-lg list-none ${
-                  activeSection === "Resume"
+                  activeSection === "Contact"
                     ? "border-b-2 border-blue-500 text-2xl text-blue-900"
                     : ""
                 }`}
