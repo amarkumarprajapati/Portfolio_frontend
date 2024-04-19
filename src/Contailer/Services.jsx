@@ -1,4 +1,7 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import axiosInstance from "../Services/apiResponce";
+import { baseurl } from "../Services/baseurl";
 
 const Services = () => {
   const getdata = () => {
@@ -15,6 +18,17 @@ const Services = () => {
   };
   getdata();
 
+  const [getService, setService] = useState("");
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      var response = await axiosInstance.get(`${baseurl}/api/getservice`);
+      setService(response);
+    };
+    fetchServices();
+  }, []);
+  console.log("getService", getService);
+
   return (
     <div>
       <div className="bg-[#F6F3FC]">
@@ -28,44 +42,42 @@ const Services = () => {
           </p>
         </div>
         <div class="flex flex-col">
-          <div class="item flex flex-row py-10 px-10  gap-5 justify-center items-center hover:text-white hover:bg-[#683CC0] w-fit m-auto">
+          <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
-            <h1 class="text-6xl w-[550px] font-semibold">Branding Design</h1>
+            <h1 class="text-5xl w-[550px] font-bold">
+              {getService.your[0].data_1[0].skills}
+            </h1>
             <p class="w-[550px]">
-              Elizabeth some dodgy chavs are you taking the piss faff about
-              pardon amongst car boot a load of old tosh is cracking goal blow
-              off telling brown.
+              I break down complex user experinece problems to create integritiy
+              focussed solutions that connect billions of people
             </p>
           </div>
 
           <hr className="w-[82%] m-auto" />
-          <div class="item flex flex-row py-10 px-10  gap-5 justify-center items-center hover:text-white hover:bg-[#683CC0] w-fit m-auto">
+          <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
-            <h1 class="text-6xl w-[550px] font-semibold">Branding Design</h1>
+            <h1 class="text-5xl w-[550px] font-bold">Web Design</h1>
             <p class="w-[550px]">
-              Elizabeth some dodgy chavs are you taking the piss faff about
-              pardon amongst car boot a load of old tosh is cracking goal blow
-              off telling brown.
+              I break down complex user experinece problems to create integritiy
+              focussed solutions that connect billions of people
             </p>
           </div>
           <hr className="w-[82%] m-auto" />
-          <div class="item flex flex-row py-10 px-10  gap-5 justify-center items-center hover:text-white hover:bg-[#683CC0] w-fit m-auto">
+          <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
-            <h1 class="text-6xl w-[550px] font-semibold">Branding Design</h1>
+            <h1 class="text-5xl w-[550px] font-bold">UI/UX Design</h1>
             <p class="w-[550px]">
-              Elizabeth some dodgy chavs are you taking the piss faff about
-              pardon amongst car boot a load of old tosh is cracking goal blow
-              off telling brown.
+              I break down complex user experinece problems to create integritiy
+              focussed solutions that connect billions of people
             </p>
           </div>
           <hr className="w-[82%] m-auto" />
-          <div class="item flex flex-row py-10 px-10  gap-5 justify-center items-center hover:text-white hover:bg-[#683CC0] w-fit m-auto">
+          <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
-            <h1 class="text-6xl w-[550px] font-semibold">Branding Design</h1>
+            <h1 class="text-5xl w-[550px] font-bold">Branding Design</h1>
             <p class="w-[550px]">
-              Elizabeth some dodgy chavs are you taking the piss faff about
-              pardon amongst car boot a load of old tosh is cracking goal blow
-              off telling brown.
+              I break down complex user experinece problems to create integritiy
+              focussed solutions that connect billions of people
             </p>
           </div>
           <hr className="w-[82%] m-auto" />
