@@ -11,7 +11,7 @@ const App = () => {
       });
     }
   };
-  React.useEffect(() => {
+ useEffect(() => {
     const scrollInterval = setInterval(handleScroll, 20); 
     return () => clearInterval(scrollInterval);
   }, []);
