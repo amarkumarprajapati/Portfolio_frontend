@@ -4,7 +4,7 @@ const Connect = () => {
   return (
     <div>
       <div className="bg-[#F6F3FC]  ">
-        <div className="flex flex-row gap-36  w-fit m-auto">
+        <div className="flex flex-row gap-10 w-fit m-auto">
           <div className=" bg-white rounded-2xl m-24 w-[40%]  ">
             <div className="px-10 py-8 flex flex-col gap-3 ">
               <h1 className="text-5xl font-bold">Let’s work together!</h1>
@@ -66,7 +66,6 @@ const Connect = () => {
                 className="bg-blue-500 w-fit px-10 py-5 rounded-lg text-white"
               />
             </div>
-            
           </div>
           <div className="flex flex-col gap-6 items-center justify-center">
             <div className="flex gap-5 items-center w-[100%]">
@@ -104,7 +103,6 @@ const Connect = () => {
             </div>
           </div>
         </div>
-       
       </div>
     </div>
   );

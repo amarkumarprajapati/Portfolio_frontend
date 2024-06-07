@@ -6,7 +6,7 @@
 
 /* Define the gradient text class */
 .text-gradient {
-  background: linear-gradient(to right, rgb(110, 100, 115), rgb(43, 9, 179));
+  background: linear-gradient(to right, rgb(97, 82, 134), rgb(30, 7, 126));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -22,9 +22,9 @@
 }
 
 .item:hover {
-  transform: translateY(5px);
-  background: linear-gradient(to right, #babafa, #9900cc);
+  background: linear-gradient(to right, #7d7dda, #441380);
   color: white;
+  transition-timing-function: ease-out; /* Apply the ease-out timing function */
 }
 
 .bg-white {

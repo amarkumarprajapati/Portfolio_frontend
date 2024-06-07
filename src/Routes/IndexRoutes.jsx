@@ -8,7 +8,12 @@ import Services from "../Contailer/Services";
 import Blogs from "../Contailer/Blogs";
 import Connect from "../Contailer/Connect";
 import Navbar from "../Components/common/Navbar";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Contact from "../Contailer/contact me/Contact";
 import Footer from "../Contailer/Footer";
 import NavbarRes from "../Components/common/NavbarRes";
@@ -45,12 +50,15 @@ const IndexRoutes = () => {
         >
           <motion.div
             style={{
-              backgroundColor: "#8A2BE2", // Violet color
+              backgroundColor: "#8A2BE2",
               height: "5px",
               width: "0%",
               borderRadius: "5px",
             }}
-            animate={{ width: "100%", transition: { duration: 2, ease: "easeInOut" } }}
+            animate={{
+              width: "100%",
+              transition: { duration: 2, ease: "easeInOut" },
+            }}
           />
         </motion.div>
       ) : (
@@ -61,13 +69,6 @@ const IndexRoutes = () => {
               element={
                 <MainLayout>
                   <Hero />
-                  <Services />
-                  <Works />
-                  <Experience />
-                  <Skills />
-                  <Blogs />
-                  <Connect />
-                  <Footer />
                 </MainLayout>
               }
             />

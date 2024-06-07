@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axiosInstance from "../../Services/apiResponce";
-import { showToast } from "../../utils/tostify";
+import { showToast } from "../../utils/tostify"; // Corrected import path
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { endpoint } from "../../Services/endpoint";
 
 const Contact = () => {
   const [name, setName] = useState("");
@@ -13,7 +14,7 @@ const Contact = () => {
     const sendData = { name, email, message };
 
     try {
-      const response = await axiosInstance.post("/api/adddatanew", sendData);
+      const response = await axiosInstance.post(`${endpoint.contectme}`, sendData);
       if (response.status === 200) {
         toast.success("Data added successfully");
       }
@@ -52,7 +53,8 @@ const Contact = () => {
               <div class="mb-6">
                 <label
                   for="default-input"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
                   Name
                 </label>
                 <input
@@ -68,7 +70,8 @@ const Contact = () => {
               <div class="mb-6">
                 <label
                   for="default-input"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
                   Email
                 </label>
                 <input
@@ -82,7 +85,8 @@ const Contact = () => {
               <div class="mb-6">
                 <label
                   for="default-input"
-                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                  class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
                   Your Message
                 </label>
                 <textarea
@@ -101,7 +105,8 @@ const Contact = () => {
                 type="button"
                 data-te-ripple-init
                 data-te-ripple-color="light"
-                class="mb-6 inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] bg-blue-700">
+                class="mb-6 inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] bg-blue-700"
+              >
                 Send
               </button>
             </form>

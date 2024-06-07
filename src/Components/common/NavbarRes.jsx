@@ -49,9 +49,7 @@ const NavbarRes = () => {
                 Home
               </motion.li>
             </ul>
-            <button className="bg-gradient-to-r from-blue-500 to-blue-800 text-white py-3 w-[150px] px-10 rounded-full">
-              Hire Me
-            </button>
+          
           </div>
         </div>
       </div>

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import axiosInstance from "../Services/apiResponce";
 import { baseurl } from "../Services/baseurl";
+import { endpoint } from "../Services/endpoint";
 
 const Services = () => {
   const getdata = () => {
@@ -18,16 +19,21 @@ const Services = () => {
   };
   getdata();
 
-  const [getService, setService] = useState("");
+  let [herosection, setHeroSection] = useState("");
 
   useEffect(() => {
-    const fetchServices = async () => {
-      var response = await axiosInstance.get(`${baseurl}/api/getservice`);
-      setService(response);
+    const fetchData = async () => {
+      try {
+        const response = await axiosInstance.get(`${endpoint.hero}`);
+
+        setHeroSection(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
     };
-    fetchServices();
+    const timeoutId = setTimeout(fetchData);
+    return () => clearTimeout(timeoutId);
   }, []);
-  console.log("getService", getService);
 
   return (
     <div>
@@ -45,40 +51,34 @@ const Services = () => {
           <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
             <h1 class="text-5xl w-[550px] font-bold">
-              {getService.your[0].data_1[0].skills}
+              {herosection[0]?.Positions[0]}
             </h1>
-            <p class="w-[550px]">
-              I break down complex user experinece problems to create integritiy
-              focussed solutions that connect billions of people
-            </p>
+            <p class="w-[550px]">{herosection[0]?.Positionsdetails}</p>
           </div>
 
           <hr className="w-[82%] m-auto" />
           <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
-            <h1 class="text-5xl w-[550px] font-bold">Web Design</h1>
-            <p class="w-[550px]">
-              I break down complex user experinece problems to create integritiy
-              focussed solutions that connect billions of people
-            </p>
+            <h1 class="text-5xl w-[550px] font-bold">
+              {herosection[0]?.Positions[1]}
+            </h1>
+            <p class="w-[550px]">{herosection[0]?.Positionsdetails}</p>
           </div>
           <hr className="w-[82%] m-auto" />
           <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
-            <h1 class="text-5xl w-[550px] font-bold">UI/UX Design</h1>
-            <p class="w-[550px]">
-              I break down complex user experinece problems to create integritiy
-              focussed solutions that connect billions of people
-            </p>
+            <h1 class="text-5xl w-[550px] font-bold">
+              {herosection[0]?.Positions[2]}
+            </h1>
+            <p class="w-[550px]">{herosection[0]?.Positionsdetails}</p>
           </div>
           <hr className="w-[82%] m-auto" />
           <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
-            <h1 class="text-5xl w-[550px] font-bold">Branding Design</h1>
-            <p class="w-[550px]">
-              I break down complex user experinece problems to create integritiy
-              focussed solutions that connect billions of people
-            </p>
+            <h1 class="text-5xl w-[550px] font-bold">
+              {herosection[0]?.Positions[3]}
+            </h1>
+            <p class="w-[550px]">{herosection[0]?.Positionsdetails}</p>
           </div>
           <hr className="w-[82%] m-auto" />
         </div>

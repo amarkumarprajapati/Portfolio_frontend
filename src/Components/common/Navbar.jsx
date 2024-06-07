@@ -6,14 +6,18 @@ import { showToast } from "../../utils/tostify";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Services");
+  const [isLoading, setIsLoading] = useState(false);
   let navigate = useNavigate();
 
   function hireme() {
-    if (window.location.pathname !== "/") {
-      showToast();
-    } else {
-      navigate("/contact");
-    }
+    setIsLoading(true);
+    setTimeout(() => {
+      if (window.location.pathname !== "/") {
+        showToast();
+      } else {
+        navigate("/contact");
+      }
+    }, 1000);
   }
 
   const handleSectionClick = (sectionName) => {
@@ -118,8 +122,30 @@ const Navbar = () => {
             </ul>
             <button
               onClick={hireme}
-              className="bg-gradient-to-r from-blue-500 to-blue-800 text-white py-3 w-[150px] px-10 rounded-full">
-              Hire Me
+              className="bg-gradient-to-r from-blue-500 to-blue-800 text-white py-3 w-[150px] px-10 h-12 rounded-full relative">
+              {isLoading ? (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <svg
+                    className="animate-spin h-5 w-5 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24">
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 4.418 3.582 8 8 8v-4c-1.793 0-3.469-.603-4.799-1.709l1.414-1.414zM20 12a8 8 0 01-8 8v4c4.418 0 8-3.582 8-8h-4zm-2-5.291A7.962 7.962 0 0120 12h4c0-4.418-3.582-8-8-8v4c1.793 0 3.469.603 4.799 1.709l-1.414 1.414z"></path>
+                  </svg>
+                </div>
+              ) : (
+                "Hire Me"
+              )}
             </button>
           </div>
         </div>
