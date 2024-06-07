@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { tabData } from "./work/sample";
 import { motion, AnimatePresence } from "framer-motion";
 import { buttonVariants } from "../helper/button";
+import image1 from "../Assects/images/2.jpg";
 
 const Works = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -33,7 +34,8 @@ const Works = () => {
                 onClick={() => setActiveTab(tab.id)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                style={{ minWidth: `${tab.title.length * 25}px` }}>
+                style={{ minWidth: `${tab.title.length * 25}px` }}
+              >
                 {tab.title}
               </motion.button>
             ))}
@@ -49,15 +51,16 @@ const Works = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="w-full">
+                      className="w-full"
+                    >
                       <div className="flex">
                         <img
-                          src="/src/Assects/images/2.jpg"
+                          src={image1}
                           className="rounded-lg mx-5"
                           alt="image"
                         />
                         <img
-                          src="/src/Assects/images/2.jpg"
+                          src={image1}
                           className="rounded-lg mx-5"
                           alt="image"
                         />

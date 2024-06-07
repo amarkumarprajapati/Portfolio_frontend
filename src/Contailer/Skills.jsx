@@ -1,4 +1,9 @@
 import React from "react";
+import figma from "../Assects/images/figma.png";
+import React from "../Assects/images/images-removebg-preview.png";
+import Tailwind from "../Assects/images/images__1_-removebg-preview.png";
+import Node from "../Assects/images/1_TY9uBBO9leUbRtlXmQBiug-removebg-preview.png";
+import express from "../Assects/images/f3a9a38b-116d-4b35-8f46-8d8abb78166f-removebg-preview.png";
 
 const Skills = () => {
   return (
@@ -17,7 +22,7 @@ const Skills = () => {
           <div className=" w-fit m-auto bg-white px-12 py-5 rounded-3xl">
             <div className="flex flex-col ">
               <img
-                src="/src/Assects/images/figma.png"
+                src={figma}
                 className="w-[50px] h-[60px] mix-blend-multiply hover:mix-blend-normal"
                 alt="image"
               />
@@ -29,7 +34,7 @@ const Skills = () => {
           <div className=" w-fit m-auto bg-white px-12  py-5 rounded-3xl ">
             <div className="flex flex-col ">
               <img
-                src="/src/Assects/images/images-removebg-preview.png"
+                src={React}
                 className="w-[60px] h-[60px] mix-blend-multiply hover:mix-blend-normal"
                 alt="image"
               />
@@ -41,7 +46,7 @@ const Skills = () => {
           <div className=" w-fit m-auto bg-white px-12 py-5  rounded-3xl">
             <div className="flex flex-col ">
               <img
-                src="/src/Assects/images/images__1_-removebg-preview.png"
+                src={Tailwind}
                 className="w-[60px] h-[60px] mix-blend-multiply hover:mix-blend-normal"
                 alt="image"
               />
@@ -53,7 +58,7 @@ const Skills = () => {
           <div className=" w-fit m-auto bg-white px-12 py-5 rounded-3xl ">
             <div className="flex flex-col ">
               <img
-                src="/src/Assects/images/1_TY9uBBO9leUbRtlXmQBiug-removebg-preview.png"
+                src={Node}
                 className="w-[60px] h-[60px] mix-blend-multiply hover:mix-blend-normal"
                 alt="image"
               />
@@ -65,7 +70,7 @@ const Skills = () => {
           <div className=" w-fit m-auto bg-white px-12 py-5 rounded-3xl ">
             <div className="flex flex-col ">
               <img
-                src="/src/Assects/images/f3a9a38b-116d-4b35-8f46-8d8abb78166f-removebg-preview.png"
+                src={express}
                 className="w-[60px] h-[60px] mix-blend-multiply hover:mix-blend-normal"
                 alt="image"
               />

@@ -1,4 +1,7 @@
 import React from "react";
+import phone from "../Assects/images/phone-call.png";
+import email from "../Assects/images/mail.png";
+import address from "../Assects/images/placeholder.png";
 
 const Connect = () => {
   return (
@@ -69,33 +72,21 @@ const Connect = () => {
           </div>
           <div className="flex flex-col gap-6 items-center justify-center">
             <div className="flex gap-5 items-center w-[100%]">
-              <img
-                src="/src/Assects/images/phone-call.png"
-                alt="image"
-                className="w-12"
-              />
+              <img src={phone} alt="image" className="w-12" />
               <div className="text-2xl font-semibold">
                 <p>Phone</p>
                 <p>+91-8908013842</p>
               </div>
             </div>
             <div className="flex gap-5 items-center  w-[100%]">
-              <img
-                src="/src/Assects/images/mail.png"
-                alt="image"
-                className="w-12"
-              />
+              <img src={email} alt="image" className="w-12" />
               <div className="font-semibold">
                 <p>Email</p>
                 <p className="text-2xl">amarkumarprajapati@gmail.com</p>
               </div>
             </div>
             <div className="flex gap-5 items-center w-[100%]">
-              <img
-                src="/src/Assects/images/placeholder.png"
-                alt="image"
-                className="w-12"
-              />
+              <img src={address} alt="image" className="w-12" />
               <div className="text-2xl font-semibold">
                 <p>Address</p>
                 <p>+01 123 654 8096</p>
