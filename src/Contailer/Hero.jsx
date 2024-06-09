@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { SocialIcon } from "react-social-icons";
-import Services from "./Services";
 import profileimage from "/src/Assects/images/myimage.png";
 import axiosInstance from "../Services/apiResponce";
 import { showToast } from "../utils/tostify";
@@ -12,11 +11,11 @@ import Connect from "./Connect";
 import Footer from "./Footer";
 import Experience from "./Experience";
 import Details from "./Details";
+import Services from "./Services";
 
 const Hero = () => {
   const [getdata, setGetData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [serverStatus, setServerStatus] = useState("");
   const [downloading, setDownloading] = useState(false);
   const [error, setError] = useState(null);
   const [herosection, setHeroSection] = useState("");
@@ -45,7 +44,7 @@ const Hero = () => {
       } catch (error) {
         console.error("Error:", error);
         handleError(error);
-        setTimeout(() => setLoading(false), 5000);
+        setLoading(false);
       }
     };
 
@@ -58,7 +57,6 @@ const Hero = () => {
       showToast("Error fetching data: " + error.response.data, "error");
     } else if (error.request) {
       console.error("Request Error:", error.request);
-      setServerStatus("Server is not responding. Please wait...");
     } else {
       console.error("Request Setup Error:", error.message);
       showToast("Error setting up request: " + error.message, "error");
@@ -67,8 +65,7 @@ const Hero = () => {
   };
 
   const calculateTotalTimeSpent = () => {
-    // Placeholder implementation for calculating total time spent
-    return 0; // Replace this with your actual logic
+    return 0;
   };
 
   const download = () => {
@@ -98,10 +95,7 @@ const Hero = () => {
           <div className="absolute top-0 left-0 w-4 h-4 bg-blue-500 rounded-full animate-ping"></div>
           <div className="absolute top-0 left-0 w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
         </div>
-        <p className="mt-4 text-gray-600">
-          Please wait while Connecting to server...
-        </p>
-        {serverStatus && <p className="mt-2 text-red-600">{serverStatus}</p>}
+        <p className="mt-4 text-gray-600">Connecting to server...</p>
       </div>
     );
   }
@@ -122,18 +116,18 @@ const Hero = () => {
 
   return (
     <div>
-      <div className="flex m-auto w-fit py-5">
-        <div className=" lg:w-[830px] mt-10  flex flex-col gap-5">
+      <div className="flex flex-col md:flex-row m-auto w-fit py-5">
+        <div className="w-full lg:w-[830px] mt-10 flex flex-col gap-5">
           <h4 className="text-4xl font-bold text-blue-900 text-gradient">
             I am {herosection[0]?.name}
           </h4>
-          <h1 className="text-7xl font-bold w-[780px] text-violet-800 text-gradient">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-violet-800 text-gradient">
             {herosection[0]?.designation}
           </h1>
-          <p className="w-[50%] text-lg text-gradient">
+          <p className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg text-gradient">
             {herosection[0]?.details}
           </p>
-          <div className="flex flex-row gap-5 items-center">
+          <div className="flex flex-col sm:flex-row gap-5 items-center">
             <button
               onClick={download}
               disabled={downloading}
@@ -181,8 +175,8 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="bg-black mt-10 px-5 py-10 rounded-lg rotate-div ">
-          <img src={profileimage} alt="image" />
+        <div className="bg-black mt-10 px-5 py-10 rounded-lg rotate-div w-full md:w-auto">
+          <img src={profileimage} alt="profile" className="w-full md:w-auto" />
         </div>
       </div>
       <div>
