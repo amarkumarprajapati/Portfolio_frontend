@@ -4,112 +4,63 @@ import profileimage from "/src/Assects/images/myimage.png";
 import axiosInstance from "../Services/apiResponce";
 import { showToast } from "../utils/tostify";
 import { endpoint } from "../Services/endpoint";
+import Details from "./Details";
+import Services from "./Services";
 import Works from "./Works";
+import Experience from "./Experience";
 import Skills from "./Skills";
 import Blogs from "./Blogs";
 import Connect from "./Connect";
 import Footer from "./Footer";
-import Experience from "./Experience";
-import Details from "./Details";
-import Services from "./Services";
 
 const Hero = () => {
-  const [getdata, setGetData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [downloading, setDownloading] = useState(false);
-  const [error, setError] = useState(null);
   const [herosection, setHeroSection] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const currentTime = new Date().toISOString();
-        const totalTimeSpent = calculateTotalTimeSpent();
-        const userData = {
-          timeenter: currentTime,
-          totaltimewait: totalTimeSpent,
-        };
-
-        await axiosInstance.post(`${endpoint.usertrack}`, userData);
-        console.log("User data sent successfully");
-
-        const [userDataResponse, heroDataResponse] = await Promise.all([
-          axiosInstance.get(`${endpoint.userdata}`),
-          axiosInstance.get(`${endpoint.hero}`),
-        ]);
-
-        setGetData(userDataResponse.data);
+        const heroDataResponse = await axiosInstance.get(`${endpoint.hero}`);
         setHeroSection(heroDataResponse.data);
         setLoading(false);
       } catch (error) {
-        console.error("Error:", error);
-        handleError(error);
+        showToast("Error fetching data", "error");
         setLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
-  const handleError = (error) => {
-    if (error.response) {
-      console.error("Response Error:", error.response.data);
-      showToast("Error fetching data: " + error.response.data, "error");
-    } else if (error.request) {
-      console.error("Request Error:", error.request);
-    } else {
-      console.error("Request Setup Error:", error.message);
-      showToast("Error setting up request: " + error.message, "error");
-    }
-    setError(error);
-  };
-
-  const calculateTotalTimeSpent = () => {
-    return 0;
-  };
-
   const download = () => {
     setDownloading(true);
+
     axiosInstance
-      .post(`${endpoint.downloadcv}`)
+      .post(`${endpoint.downloadcv}`, {}, { responseType: "blob" })
       .then((response) => {
-        if (response.status === 200) {
-          showToast("Download started", "success");
-        } else {
-          showToast("Error starting download", "error");
-        }
+        const blob = new Blob([response.data], { type: "application/pdf" });
+        const blobUrl = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = blobUrl;
+        link.setAttribute("download", "Amar Kumar Prajapati.pdf");
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+
+        showToast("Download started", "success");
       })
-      .catch((error) => {
-        console.error("Error starting download:", error);
+      .catch(() => {
         showToast("Error starting download", "error");
       })
       .finally(() => {
         setDownloading(false);
       });
   };
-
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
-        <div className="w-16 h-16 relative">
-          <div className="absolute top-0 left-0 w-4 h-4 bg-blue-500 rounded-full animate-ping"></div>
-          <div className="absolute top-0 left-0 w-4 h-4 bg-blue-500 rounded-full animate-pulse"></div>
-        </div>
-        <p className="mt-4 text-gray-600">Connecting to server...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex flex-col items-center justify-center h-screen">
-        <p className="text-red-600">Error: {error.message}</p>
-        <button
-          className="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onClick={() => window.location.reload()}
-        >
-          Retry
-        </button>
+        <div className="spinner"></div>
+        <p className="mt-4 text-gray-600">Loading, please wait...</p>
       </div>
     );
   }
@@ -118,77 +69,50 @@ const Hero = () => {
     <div>
       <div className="flex flex-col md:flex-row m-auto w-fit py-5">
         <div className="w-full lg:w-[830px] mt-10 flex flex-col gap-5">
-          <h4 className="text-4xl font-bold text-blue-900 text-gradient">
+          <h4 className="text-4xl font-bold text-blue-900">
             I am {herosection[0]?.name}
           </h4>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-violet-800 text-gradient">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-violet-800">
             {herosection[0]?.designation}
           </h1>
-          <p className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg text-gradient">
+          <p className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg">
             {herosection[0]?.details}
           </p>
-          <div className="flex flex-col sm:flex-row gap-5 items-center">
-            <button
-              onClick={download}
-              disabled={downloading}
-              className="w-56 h-12 font-bold rounded-full border-2 border-blue-500 from-blue-500 to-blue-700 relative"
-            >
-              {!downloading ? (
-                <span>Download CV</span>
-              ) : (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="font-bold">Requesting...</div>
-                </div>
-              )}
-            </button>
-            <div className="flex flex-row gap-4">
-              <SocialIcon
-                url="www.twitter.com"
-                onClick={() => {
-                  window.open("https://twitter.com/amarkumarprajap", "self");
-                }}
-              />
-              <SocialIcon
-                url="www.web.com"
-                onClick={() => {
-                  window.open(
-                    "https://quiet-mooncake-32763c.netlify.app/",
-                    "self"
-                  );
-                }}
-              />
-              <SocialIcon
-                url="www.linkedin.com"
-                onClick={() => {
-                  window.open(
-                    "https://www.linkedin.com/in/amar-kumar-prajapati-76255072/",
-                    "self"
-                  );
-                }}
-              />
-              <SocialIcon
-                url="www.github.com"
-                onClick={() => {
-                  window.open("https://github.com/amarkumarprajapati", "self");
-                }}
-              />
-            </div>
+          <button
+            onClick={download}
+            disabled={downloading}
+            className="w-56 h-12 font-bold rounded-full border-2 border-blue-500 relative flex items-center justify-center"
+          >
+            {downloading ? (
+              <>
+                <div className="spinner"></div>
+              </>
+            ) : (
+              "Download CV"
+            )}
+          </button>
+
+          <div className="flex flex-row gap-4 mt-5">
+            <SocialIcon url="https://twitter.com/amarkumarprajap" />
+            <SocialIcon url="https://quiet-mooncake-32763c.netlify.app/" />
+            <SocialIcon url="https://www.linkedin.com/in/amar-kumar-prajapati-76255072/" />
+            <SocialIcon url="https://github.com/amarkumarprajapati" />
           </div>
         </div>
-        <div className="bg-black mt-10 px-5 py-10 rounded-lg rotate-div w-full md:w-auto">
+
+        <div className="bg-black mt-10 px-5 py-10 rounded-lg w-full md:w-auto">
           <img src={profileimage} alt="profile" className="w-full md:w-auto" />
         </div>
       </div>
-      <div>
-        <Details />
-        <Services />
-        <Works />
-        <Experience />
-        <Skills />
-        <Blogs />
-        <Connect />
-        <Footer />
-      </div>
+
+      <Details />
+      <Services />
+      <Works />
+      <Experience />
+      <Skills />
+      <Blogs />
+      <Connect />
+      <Footer />
     </div>
   );
 };

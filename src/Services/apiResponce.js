@@ -2,28 +2,24 @@ import axios from "axios";
 import { baseurl } from "./baseurl";
 
 const axiosInstance = axios.create({
-  baseURL: baseurl, 
-  timeout: 10000, 
+  baseURL: baseurl,
+  timeout: 10000,
   headers: {
-    "Content-Type": "application/json", 
+    "Content-Type": "application/json",
   },
 });
 
 axiosInstance.interceptors.response.use(
-  response => {
+  (response) => {
     return response.data;
   },
-  error => {
-
+  (error) => {
     if (error.response) {
-      console.error("Response Error:", error.response.data);
-      return Promise.reject(error.response.data); 
+      return Promise.reject(error.response.data);
     } else if (error.request) {
-      console.error("Request Error:", error.request);
-      return Promise.reject("No response received from server"); 
+      return Promise.reject("No response received from server");
     } else {
-      console.error("Request Setup Error:", error.message);
-      return Promise.reject("Error setting up request"); 
+      return Promise.reject("Error setting up request");
     }
   }
 );

@@ -88,7 +88,6 @@ const IndexRoutes = () => {
   );
 };
 
-// MainLayout component for main pages
 const MainLayout = ({ children }) => {
   const location = useLocation();
 
@@ -107,7 +106,6 @@ const MainLayout = ({ children }) => {
   );
 };
 
-// ContactLayout component for contact page
 const ContactLayout = ({ children }) => {
   const location = useLocation();
 
