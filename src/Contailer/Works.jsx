@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import { tabData } from "./work/sample";
 import { motion, AnimatePresence } from "framer-motion";
 import { endpoint } from "../Services/endpoint";
-import axios from "axios";
-import { baseurl } from "../Services/baseurl";
+import axiosInstance from "../Services/apiResponce";
 
 const Works = () => {
   const [activeTab, setActiveTab] = useState(1);
@@ -13,7 +12,6 @@ const Works = () => {
     const fetchImages = async () => {
       try {
         const response = await axiosInstance.get(`${endpoint.projectimages}`);
-        console.log("response", response.data);
         if (response.data.success) {
           setImages(response.data.images);
         }
