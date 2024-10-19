@@ -4,5 +4,5 @@ export const endpoint = {
   downloadcv: "/api/downloadcv",
   contectme: "/api/adddatanew",
   hero:"/api/herosection",
-  projectimages:"api/image/projectimages"
+  projectimages:"/api/image/projectimages"
 };

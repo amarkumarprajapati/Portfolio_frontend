@@ -12,7 +12,7 @@ const Works = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get(`${baseurl}${endpoint.projectimages}`);
+        const response = await axiosInstance.get(`${endpoint.projectimages}`);
         console.log("response", response.data);
         if (response.data.success) {
           setImages(response.data.images);
