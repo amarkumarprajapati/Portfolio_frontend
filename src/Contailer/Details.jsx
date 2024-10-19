@@ -32,7 +32,7 @@ const Details = () => {
           <div className=" text-violet-800 flex flex-row gap-2 items-center">
             <h1 className="text-7xl font-bold ">{herosection[0]?.project}</h1>
 
-            <p className="w-24 text-lg mx-2 font-bold ">Project Completed</p>
+            <p className="w-24 text-lg mx-2 font-bold ">Major Project Completed</p>
           </div>
           <div className=" text-violet-800 flex flex-row gap-2 items-center">
             <h1 className="text-7xl font-bold ">{herosection[0]?.clients}</h1>

@@ -17,6 +17,8 @@ const Hero = () => {
   const [loading, setLoading] = useState(true);
   const [downloading, setDownloading] = useState(false);
   const [herosection, setHeroSection] = useState("");
+  const [retry, setRetry] = useState(false);
+  const [timeoutReached, setTimeoutReached] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,10 +29,26 @@ const Hero = () => {
       } catch (error) {
         showToast("Error fetching data", "error");
         setLoading(false);
+        setTimeoutReached(true);
       }
     };
+
+    const timer = setTimeout(() => {
+      if (loading) {
+        setTimeoutReached(true);
+      }
+    }, 5000);
+
     fetchData();
-  }, []);
+
+    return () => clearTimeout(timer);
+  }, [retry]);
+
+  const handleRetry = () => {
+    setRetry((prev) => !prev);
+    setLoading(true);
+    setTimeoutReached(false);
+  };
 
   const download = () => {
     setDownloading(true);
@@ -56,27 +74,39 @@ const Hero = () => {
         setDownloading(false);
       });
   };
+
   if (loading) {
     return (
       <div className="flex flex-col items-center justify-center h-screen">
         <div className="spinner"></div>
-        <p className="mt-4 text-gray-600">Loading, please wait...</p>
+        <p className="mt-4 text-gray-600">
+          Please wait while requesting to the server to start
+        </p>
+        {timeoutReached && (
+          <button
+            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+            onClick={handleRetry}
+          >
+            Retry
+          </button>
+        )}
       </div>
     );
   }
 
+  const herosectiondata = herosection[0] || {};
   return (
     <div>
       <div className="flex flex-col md:flex-row m-auto w-fit py-5">
         <div className="w-full lg:w-[830px] mt-10 flex flex-col gap-5">
           <h4 className="text-4xl font-bold text-blue-900">
-            I am {herosection[0]?.name}
+            I am {herosectiondata.name}
           </h4>
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-violet-800">
-            {herosection[0]?.designation}
+            {herosectiondata.designation}
           </h1>
           <p className="w-full sm:w-[80%] md:w-[60%] lg:w-[50%] text-lg">
-            {herosection[0]?.details}
+            {herosectiondata.details}
           </p>
           <button
             onClick={download}
@@ -93,10 +123,26 @@ const Hero = () => {
           </button>
 
           <div className="flex flex-row gap-4 mt-5">
-            <SocialIcon url="https://twitter.com/amarkumarprajap" />
-            <SocialIcon url="https://quiet-mooncake-32763c.netlify.app/" />
-            <SocialIcon url="https://www.linkedin.com/in/amar-kumar-prajapati-76255072/" />
-            <SocialIcon url="https://github.com/amarkumarprajapati" />
+            <SocialIcon
+              url="https://twitter.com/amarkumarprajap"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+            <SocialIcon
+              url="https://quiet-mooncake-32763c.netlify.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+            <SocialIcon
+              url="https://www.linkedin.com/in/amar-kumar-prajapati-76255072/"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
+            <SocialIcon
+              url="https://github.com/amarkumarprajapati"
+              target="_blank"
+              rel="noopener noreferrer"
+            />
           </div>
         </div>
 

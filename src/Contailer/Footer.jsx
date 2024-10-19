@@ -1,114 +1,101 @@
-// import React from "react";
-
-// const Footer = () => {
-//   return (
-//     <div>
-//       <div className="bg-[#2A1454] h- ">
-//         <div className=" w-fit m-auto px-5 py-5">
-//           <img src="/src/Assects/images/newlogo.png" alt="" />
-//         </div>
-//         <div>
-//             <ul className="flex text-white gap-10 text-lg  text-center justify-center">
-//                 <li>Services</li>
-//                 <li>Works</li>
-//                 <li>Resume</li>
-//                 <li>Skills</li>
-//                 <li>Testimonials</li>
-//                 <li>Contact</li>
-//             </ul>
-//         </div>
-//         <div className="text-center flex flex-col px-4 py-4 text-lg text-blue-400 font-semibold">
-//             <h1>© 2024 All rights reserved by ThemeJunction</h1>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Footer;
-
 import React from "react";
-import { motion } from "framer-motion";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaGithub,
+} from "react-icons/fa";
+import logo from "../Assects/images/newlogo.png";
 
 const Footer = () => {
-  const openComponentBPage = () => {
-    const componentBUrl = "/Contact";
-    window.open(componentBUrl, "_blank");
-  };
-
   return (
-    <div className="flex flex-col md:flex-row justify-center bg-gradient-to-b from-violet-500 via-purple-500 to-blue-500 text-white py-16 md:py-24 gap-10 md:gap-52 px-6 md:px-0">
-      <div className="flex flex-col mb-8 md:mb-12 md:mr-10">
-        <h1 className="text-3xl md:text-4xl font-bold">
-          Let's design something
-          <br />
-          <span className="text-blue-500">together?</span>
-        </h1>
-        <motion.button
-          whileTap={{ scale: 0.95 }}
-          onClick={openComponentBPage}
-          className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-yellow-400 hover:to-green-500 text-white py-3 md:py-4 px-8 md:px-5 rounded-full mt-4 md:mt-6 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
-        >
-          Contact Me
-        </motion.button>
-      </div>
-      <div className="flex flex-col text-center md:text-left">
-        <h1 className="text-2xl font-bold md:text-4xl mb-4">
-          You can find me on
-        </h1>
-        <span className="text-blue-500 mb-2">Social media:</span>
-        <div className="flex flex-col md:flex-col gap-4 md:gap-10">
-          <a
-            href="https://www.linkedin.com/in/amar-prajapati-76255072/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-yellow-400 hover:to-green-500 text-white py-3 md:py-4 px-8 md:px-10 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 mb-2 md:mb-0"
+    <footer className="bg-[#0A1128] text-white py-12">
+      <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 px-6">
+        <div className="flex flex-col items-start space-y-2  p-24">
+          <div className="flex items-center space-x-2">
+            <img src={logo} alt="Logo" className="w-10 h-10" />
+            <span className="text-lg font-bold">Amar Kumar Prajapati</span>
+          </div>
+          <p className="text-sm">
+            © 2024 Amar Kumar Prajapati. All rights reserved.
+          </p>
+          <div className="flex space-x-4">
+            <a
+              href="https://facebook.com/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              LinkedIn
-            </motion.button>
+              <FaFacebookF className="w-6 h-6 hover:text-blue-500 transition-colors duration-200" />
+            </a>
+            <a
+              href="https://instagram.com/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram className="w-6 h-6 hover:text-pink-500 transition-colors duration-200" />
+            </a>
+            <a
+              href="https://linkedin.com/in/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedinIn className="w-6 h-6 hover:text-blue-600 transition-colors duration-200" />
+            </a>
+            <a
+              href="https://github.com/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="w-6 h-6 hover:text-gray-400 transition-colors duration-200" />
+            </a>
+          </div>
+        </div>
+
+        <div className="flex flex-col space-y-2 p-24">
+          <h2 className="text-lg font-semibold">Quick Links</h2>
+          <a href="/web-page" className="hover:underline">
+            Web page
           </a>
-          <a
-            href="https://github.com/amarkumarprajapati?tab=repositories"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-yellow-400 hover:to-green-500 text-white py-3 md:py-4 px-8 md:px-10 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 mb-2 md:mb-0"
-            >
-              Github
-            </motion.button>
+          <a href="/online-shop" className="hover:underline">
+            Online shop
           </a>
-          <a
-            href="https://www.facebook.com/amarkk1"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-yellow-400 hover:to-green-500 text-white py-3 md:py-4 px-8 md:px-10 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 mb-2 md:mb-0"
-            >
-              Facebook
-            </motion.button>
+          <a href="/seo-optimization" className="hover:underline">
+            SEO optimization
           </a>
-          <a
-            href="https://www.instagram.com/amarkumarprajapatikkr/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <motion.button
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-pink-500 to-red-500 hover:from-yellow-400 hover:to-green-500 text-white py-3 md:py-4 px-8 md:px-10 rounded-full focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
-            >
-              Instagram
-            </motion.button>
+          <a href="/counseling" className="hover:underline">
+            Counseling
           </a>
         </div>
+
+        <div className="flex flex-col space-y-3 p-24">
+          <h2 className="text-lg font-semibold">
+            Download online sales trends in Slovenia for 2024
+          </h2>
+          <p className="text-sm">
+            Enter your email and we will send you our detailed analysis of the
+            Slovenian online store market.
+          </p>
+          <form className="flex flex-col space-y-2">
+            <input
+              type="email"
+              placeholder="E-mail address"
+              className="px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none"
+            />
+            <input
+              type="text"
+              placeholder="Your name"
+              className="px-4 py-2 bg-gray-800 text-white rounded-lg focus:outline-none"
+            />
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-lg transition duration-300"
+            >
+              I want to receive trends
+            </button>
+          </form>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

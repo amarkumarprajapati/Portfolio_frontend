@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { showToast } from "../../utils/tostify";
 import { FaBars, FaTimes } from "react-icons/fa";
+import logo from '../../Assects/images/newlogo.png'
+
+
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Services");
@@ -39,7 +42,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <img
             onClick={() => navigate("/")}
-            src="/src/Assects/images/newlogo.png"
+            src={logo}
             className="w-12 md:w-16 cursor-pointer"
             alt="Logo"
           />
