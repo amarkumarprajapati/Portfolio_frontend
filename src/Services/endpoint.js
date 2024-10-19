@@ -3,5 +3,6 @@ export const endpoint = {
   userdata: "/api/getall",
   downloadcv: "/api/downloadcv",
   contectme: "/api/adddatanew",
-  hero:"/api/herosection"
+  hero:"/api/herosection",
+  projectimages:"/api/image/projectimages"
 };
