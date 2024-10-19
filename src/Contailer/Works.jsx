@@ -12,9 +12,8 @@ const Works = () => {
     const fetchImages = async () => {
       try {
         const response = await axiosInstance.get(`${endpoint.projectimages}`);
-        if (response.data.success) {
-          setImages(response.data.images);
-        }
+        setImages(response.images);
+        console.log("response.data", response.images);
       } catch (error) {
         console.error("Error fetching images:", error);
       }
@@ -57,7 +56,7 @@ const Works = () => {
           </div>
           <div className="bg-white px-5 py-16">
             <AnimatePresence>
-              {tabData.map(
+              {tabData?.map(
                 (tab) =>
                   activeTab === tab.id && (
                     <motion.div
@@ -68,7 +67,7 @@ const Works = () => {
                       transition={{ duration: 0.3 }}
                       className="w-full">
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
-                        {images.map((image, index) => (
+                        {images?.map((image, index) => (
                           <a
                             key={index}
                             href={image.redirectUrl}
