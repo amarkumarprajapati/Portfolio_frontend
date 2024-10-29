@@ -27,7 +27,7 @@ const IndexRoutes = () => {
         await new Promise((resolve) => setTimeout(resolve, 3000));
         setServerStarting(false);
       } catch (error) {
-        console.error("Failed to start server:", error);
+
       }
     };
 

@@ -20,7 +20,7 @@ const Contact = () => {
       }
       showToast();
     } catch (error) {
-      console.error("Error:", error);
+
       toast.error("Failed to add data");
     }
   };

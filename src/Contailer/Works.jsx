@@ -13,9 +13,9 @@ const Works = () => {
       try {
         const response = await axiosInstance.get(`${endpoint.projectimages}`);
         setImages(response.images);
-        console.log("response.data", response.images);
+
       } catch (error) {
-        console.error("Error fetching images:", error);
+
       }
     };
 

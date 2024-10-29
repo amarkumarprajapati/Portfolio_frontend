@@ -13,7 +13,7 @@ const Details = () => {
 
         setHeroSection(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+
       }
     };
     const timeoutId = setTimeout(fetchData);

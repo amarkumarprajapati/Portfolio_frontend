@@ -7,7 +7,7 @@ const NavbarRes = () => {
 
   const handleSectionClick = (sectionName) => {
     setActiveSection(sectionName);
-    console.log("Active Section:", sectionName);
+
   };
 
   const underlineVariants = {

@@ -3,9 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { showToast } from "../../utils/tostify";
 import { FaBars, FaTimes } from "react-icons/fa";
-import logo from '../../Assects/images/newlogo.png'
-
-
+import logo from "../../Assects/images/newlogo.png";
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Services");
@@ -28,7 +26,6 @@ const Navbar = () => {
   const handleSectionClick = (sectionName) => {
     setActiveSection(sectionName);
     setMenuOpen(false);
-    console.log("Active Section:", sectionName);
   };
 
   const underlineVariants = {

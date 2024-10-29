@@ -25,20 +25,20 @@ const Connect = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Check if any form field is filled
+
     const isFormFilled = Object.values(formData).some(
       (value) => value.trim() !== ""
     );
 
-    // If form is filled, generate WhatsApp URL and open in a new tab
+
     if (isFormFilled) {
       const whatsappUrl = `https://wa.me/8908013842?text=${encodeURIComponent(
         `Name: ${formData.firstName} ${formData.lastName}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nMessage: ${formData.message}`
       )}`;
       window.open(whatsappUrl, "_blank");
     } else {
-      // Handle form submission locally if form is not filled
-      console.log("Form is empty. Do something else...");
+
+
     }
   };
 

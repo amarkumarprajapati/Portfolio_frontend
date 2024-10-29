@@ -14,7 +14,7 @@ const Services = () => {
 
     function newdata1(a, b) {
       let sum = a + b;
-      console.log(sum);
+
     }
   };
   getdata();
@@ -28,7 +28,7 @@ const Services = () => {
 
         setHeroSection(response.data);
       } catch (error) {
-        console.error("Error fetching data:", error);
+     
       }
     };
     const timeoutId = setTimeout(fetchData);

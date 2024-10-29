@@ -1,5 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import IndexRoutes from "./Routes/IndexRoutes";
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import store from "./Store/store";
+
 const App = () => {
   const containerRef = useRef(null);
 
@@ -19,7 +23,9 @@ const App = () => {
   return (
     <div ref={containerRef} style={{ scrollBehavior: "smooth" }}>
       <div>
-        <IndexRoutes />
+        <Provider store={store}>
+          <IndexRoutes />
+        </Provider>
       </div>
     </div>
   );
