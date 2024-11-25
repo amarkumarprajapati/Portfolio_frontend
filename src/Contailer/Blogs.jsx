@@ -1,4 +1,6 @@
 import React from "react";
+import clockimage from '../Assects/images/clock.png'
+import comment from '../Assects/images/comments.png'
 
 function Blogs() {
   return (
@@ -23,12 +25,12 @@ function Blogs() {
           </button>
           <div className="bg-white group-hover:bg-violet-600 group-hover:text-white ease-in-out duration-300 delay-100 w-[350px] rounded-lg justify-center items-center px-5 py-5 m-auto mt-40 cursor-pointer ">
             <div className="flex font-semibold items-center gap-2">
-              <img src="/src/Assects/images/clock.png" className="w-5" alt="" />
+              <img src={clockimage} className="w-5" alt="" />
               <p>Date</p>
               <div className="flex font-semibold items-center py-1 gap-2">
                 <img
-                  src="/src/Assects/images/comments.png"
-                  alt=""
+                  src={comment}
+                  alt="image"
                   className="w-5"
                 />
                 <p>comment</p>
@@ -47,12 +49,12 @@ function Blogs() {
           </button>
           <div className="bg-white group-hover:bg-violet-600 group-hover:text-white ease-in-out duration-300 delay-100 w-[350px] rounded-lg justify-center items-center px-5 py-5 m-auto mt-40 cursor-pointer ">
             <div className="flex font-semibold items-center gap-2">
-              <img src="/src/Assects/images/clock.png" className="w-5" alt="" />
+              <img src={clockimage} className="w-5" alt="" />
               <p>Date</p>
               <div className="flex font-semibold items-center py-1 gap-2">
                 <img
-                  src="/src/Assects/images/comments.png"
-                  alt=""
+                  src={comment}
+                  alt="image"
                   className="w-5"
                 />
                 <p>comment</p>
@@ -70,11 +72,11 @@ function Blogs() {
           </button>
           <div className="bg-white group-hover:bg-violet-600 group-hover:text-white ease-in-out duration-300 delay-100 w-[350px] rounded-lg justify-center items-center px-5 py-5 m-auto mt-40 cursor-pointer ">
             <div className="flex font-semibold items-center gap-2">
-              <img src="/src/Assects/images/clock.png" className="w-5" alt="" />
+              <img src={clockimage} className="w-5" alt="" />
               <p>Date</p>
               <div className="flex font-semibold items-center py-1 gap-2">
                 <img
-                  src="/src/Assects/images/comments.png"
+                  src={comment}
                   alt=""
                   className="w-5"
                 />

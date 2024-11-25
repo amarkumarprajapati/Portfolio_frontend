@@ -4,7 +4,7 @@ import axiosInstance from "../Services/apiResponce";
 import { baseurl } from "../Services/baseurl";
 import { endpoint } from "../Services/endpoint";
 
-const Services = () => {
+const Services = ({herosection}) => {
   const getdata = () => {
     async function any() {
       var a = await fetch("base/api");
@@ -19,21 +19,9 @@ const Services = () => {
   };
   getdata();
 
-  let [herosection, setHeroSection] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosInstance.get(`${endpoint.hero}`);
 
-        setHeroSection(response.data);
-      } catch (error) {
-     
-      }
-    };
-    const timeoutId = setTimeout(fetchData);
-    return () => clearTimeout(timeoutId);
-  }, []);
+
 
   return (
     <div>

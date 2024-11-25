@@ -151,10 +151,10 @@ const Hero = () => {
         </div>
       </div>
 
-      <Details />
-      <Services />
+      <Details herosection={herosection} />
+      <Services herosection={herosection} />
       <Works />
-      <Experience />
+      <Experience herosection={herosection} />
       <Skills />
       <Blogs />
       <Connect />

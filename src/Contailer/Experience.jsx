@@ -2,21 +2,9 @@ import React, { useState, useEffect } from "react";
 import { endpoint } from "../Services/endpoint";
 import axiosInstance from "../Services/apiResponce";
 
-const Experience = () => {
-  let [herosection, setHeroSection] = useState("");
+const Experience = ({herosection}) => {
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosInstance.get(`${endpoint.hero}`);
-        setHeroSection(response.data);
-      } catch (error) {
 
-      }
-    };
-    const timeoutId = setTimeout(fetchData);
-    return () => clearTimeout(timeoutId);
-  }, []);
 
   return (
     <div>
@@ -58,7 +46,7 @@ const Experience = () => {
               <h1 class="text-3xl font-bold">
                 {herosection[0]?.experienceddegination[0]}
               </h1>
-              <p class="text-2xl">Blockdots, London</p>
+              <p class="text-2xl">Bangalore, India</p>
             </div>
           </div>
         </div>

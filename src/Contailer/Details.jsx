@@ -3,22 +3,8 @@ import React from "react";
 import { endpoint } from "../Services/endpoint";
 import axiosInstance from "../Services/apiResponce";
 
-const Details = () => {
-  let [herosection, setHeroSection] = useState("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axiosInstance.get(`${endpoint.hero}`);
-
-        setHeroSection(response.data);
-      } catch (error) {
-
-      }
-    };
-    const timeoutId = setTimeout(fetchData);
-    return () => clearTimeout(timeoutId);
-  }, []);
+const Details = ({herosection}) => {
+ 
   return (
     <div>
       <div>
