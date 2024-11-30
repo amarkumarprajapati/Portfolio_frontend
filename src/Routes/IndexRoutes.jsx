@@ -1,22 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Hero from "../Contailer/Hero";
-import Works from "../Contailer/Works";
-import Skills from "../Contailer/Skills";
-import Experience from "../Contailer/Experience";
-import Services from "../Contailer/Services";
-import Blogs from "../Contailer/Blogs";
-import Connect from "../Contailer/Connect";
-import Navbar from "../Components/common/Navbar";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useLocation,
-} from "react-router-dom";
 import Contact from "../Contailer/contact me/Contact";
 import Footer from "../Contailer/Footer";
+import Navbar from "../Components/common/Navbar";
 import NavbarRes from "../Components/common/NavbarRes";
+
 
 const IndexRoutes = () => {
   const [serverStarting, setServerStarting] = useState(true);
@@ -24,10 +14,10 @@ const IndexRoutes = () => {
   useEffect(() => {
     const checkServerStatus = async () => {
       try {
-        await new Promise((resolve) => setTimeout(resolve, 3000));
+        await new Promise((resolve) => setTimeout(resolve, 3000)); // Simulate a loading delay
         setServerStarting(false);
       } catch (error) {
-
+        console.error("Error during server check:", error);
       }
     };
 
@@ -37,30 +27,65 @@ const IndexRoutes = () => {
   return (
     <div>
       {serverStarting ? (
-        <motion.div
+        <div
           style={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
             height: "100vh",
+            backgroundColor: "#f4f4f4",
           }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
         >
-          <motion.div
-            style={{
-              backgroundColor: "#8A2BE2",
-              height: "5px",
-              width: "0%",
-              borderRadius: "5px",
-            }}
-            animate={{
-              width: "100%",
-              transition: { duration: 2, ease: "easeInOut" },
-            }}
-          />
-        </motion.div>
+          {/* New SVG Loader */}
+          <svg className="pl" width="240" height="240" viewBox="0 0 240 240">
+            <circle
+              className="pl__ring pl__ring--a"
+              cx="120"
+              cy="120"
+              r="105"
+              fill="none"
+              stroke="#000"
+              strokeWidth="20"
+              strokeDasharray="0 660"
+              strokeDashoffset="-330"
+              strokeLinecap="round"
+            ></circle>
+            <circle
+              className="pl__ring pl__ring--b"
+              cx="120"
+              cy="120"
+              r="35"
+              fill="none"
+              stroke="#000"
+              strokeWidth="20"
+              strokeDasharray="0 220"
+              strokeDashoffset="-110"
+              strokeLinecap="round"
+            ></circle>
+            <circle
+              className="pl__ring pl__ring--c"
+              cx="85"
+              cy="120"
+              r="70"
+              fill="none"
+              stroke="#000"
+              strokeWidth="20"
+              strokeDasharray="0 440"
+              strokeLinecap="round"
+            ></circle>
+            <circle
+              className="pl__ring pl__ring--d"
+              cx="155"
+              cy="120"
+              r="70"
+              fill="none"
+              stroke="#000"
+              strokeWidth="20"
+              strokeDasharray="0 440"
+              strokeLinecap="round"
+            ></circle>
+          </svg>
+        </div>
       ) : (
         <Router>
           <Routes>

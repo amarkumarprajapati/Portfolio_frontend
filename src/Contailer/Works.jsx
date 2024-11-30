@@ -76,7 +76,7 @@ const Works = () => {
                             className="group">
                             <img
                               src={image.url}
-                              className="rounded-lg w-full h-auto object-cover transition-transform duration-300 transform group-hover:scale-105 group-hover:shadow-lg"
+                              className="rounded-lg w-full h-auto object-cover transition-transform duration-300 transform group-hover:scale-105 group-hover:shadow-lg shadow-lg"
                               alt={image.key}
                             />
                           </a>

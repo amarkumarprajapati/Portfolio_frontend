@@ -10,12 +10,12 @@ const NavbarSlider = () => {
             <h1>Amarkumarprajapati@gmail.com</h1>
           </div>
           <div className=" flex flex-row gap-5 justify-center items-center mx-24">
-            <li className="text-lg">Services</li>
+            {/* <li className="text-lg">Services</li>
             <li className="text-lg">Works</li>
             <li className="text-lg">Resume</li>
             <li className="text-lg">Skills</li>
             <li className="text-lg">Testimonials</li>
-            <li className="text-lg">Contact</li>
+            <li className="text-lg">Contact</li> */}
             <button className="bg-gradient-to-r from-blue-500 to-blue-800 text-white py-3 px-10 rounded-full">
               Hire Me
             </button>
