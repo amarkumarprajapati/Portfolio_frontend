@@ -1,26 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { tabData } from "./work/sample";
 import { motion, AnimatePresence } from "framer-motion";
-import { endpoint } from "../Services/endpoint";
-import axiosInstance from "../Services/apiResponce";
+import musicplayer from '../Assects/images/Screenshot 2024-12-21 162209.png';
 
 const Works = () => {
   const [activeTab, setActiveTab] = useState(1);
-  const [images, setImages] = useState([]);
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await axiosInstance.get(`${endpoint.projectimages}`);
-        setImages(response.images);
-
-      } catch (error) {
-
-      }
-    };
-
-    fetchImages();
-  }, []);
+  // Updated images array with the required properties
+  const images = [
+    {
+      url: musicplayer, // Path to the image
+      redirectUrl: "#", // Example URL, replace with the desired link
+      key: "Music Player",
+    },
+  ];
 
   return (
     <div>
@@ -29,7 +22,7 @@ const Works = () => {
           <h1 className="text-5xl py-10 mt-5 text-blue-800 font-bold text-center">
             My Quality Services
           </h1>
-          <p className="w-[43%] text-lg text-center  m-auto">
+          <p className="w-[43%] text-lg text-center m-auto">
             We put your ideas and thus your wishes in the form of a unique web
             project that inspires you and your customers.
           </p>
@@ -49,7 +42,8 @@ const Works = () => {
                 onClick={() => setActiveTab(tab.id)}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                style={{ minWidth: `${tab.title.length * 25}px` }}>
+                style={{ minWidth: `${tab.title.length * 25}px` }}
+              >
                 {tab.title}
               </motion.button>
             ))}
@@ -65,15 +59,17 @@ const Works = () => {
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="w-full">
+                      className="w-full"
+                    >
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
-                        {images?.map((image, index) => (
+                        {images.map((image, index) => (
                           <a
                             key={index}
                             href={image.redirectUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group">
+                            className="group"
+                          >
                             <img
                               src={image.url}
                               className="rounded-lg w-full h-auto object-cover transition-transform duration-300 transform group-hover:scale-105 group-hover:shadow-lg shadow-lg"

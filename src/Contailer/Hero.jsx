@@ -1,9 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { SocialIcon } from "react-social-icons";
 import profileimage from "/src/Assects/images/myimage.png";
-import axiosInstance from "../Services/apiResponce";
-import { showToast } from "../utils/tostify";
-import { endpoint } from "../Services/endpoint";
 import Details from "./Details";
 import Services from "./Services";
 import Works from "./Works";
@@ -14,87 +11,23 @@ import Connect from "./Connect";
 import Footer from "./Footer";
 
 const Hero = () => {
-  const [loading, setLoading] = useState(true);
-  const [downloading, setDownloading] = useState(false);
-  const [herosection, setHeroSection] = useState("");
-  const [retry, setRetry] = useState(false);
-  const [timeoutReached, setTimeoutReached] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const heroDataResponse = await axiosInstance.get(`${endpoint.hero}`);
-        setHeroSection(heroDataResponse.data);
-        setLoading(false);
-      } catch (error) {
-        showToast("Error fetching data", "error");
-        setLoading(false);
-        setTimeoutReached(true);
-      }
-    };
-
-    const timer = setTimeout(() => {
-      if (loading) {
-        setTimeoutReached(true);
-      }
-    }, 5000);
-
-    fetchData();
-
-    return () => clearTimeout(timer);
-  }, [retry]);
-
-  const handleRetry = () => {
-    setRetry((prev) => !prev);
-    setLoading(true);
-    setTimeoutReached(false);
+  const herosectiondata = {
+    name: "Amar Kumar Prajapati",
+    designation: "Full Stack Developer",
+    details: "I specialize in creating innovative solutions and building scalable web applications.",
   };
 
   const download = () => {
-    setDownloading(true);
-
-    axiosInstance
-      .post(`${endpoint.downloadcv}`, {}, { responseType: "blob" })
-      .then((response) => {
-        const blob = new Blob([response.data], { type: "application/pdf" });
-        const blobUrl = URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = blobUrl;
-        link.setAttribute("download", "Amar Kumar Prajapati.pdf");
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-
-        showToast("Download started", "success");
-      })
-      .catch(() => {
-        showToast("Error starting download", "error");
-      })
-      .finally(() => {
-        setDownloading(false);
-      });
+    const blob = new Blob([], { type: "application/pdf" }); // Replace with actual content if needed
+    const blobUrl = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = blobUrl;
+    link.setAttribute("download", "Amar Kumar Prajapati.pdf");
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
   };
 
-  if (loading) {
-    return (
-      <div className="flex flex-col items-center justify-center h-screen">
-        <div className="spinner"></div>
-        <p className="mt-4 text-gray-600">
-          Please wait while requesting to the server to start
-        </p>
-        {timeoutReached && (
-          <button
-            className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-            onClick={handleRetry}
-          >
-            Retry
-          </button>
-        )}
-      </div>
-    );
-  }
-
-  const herosectiondata = herosection[0] || {};
   return (
     <div>
       <div className="flex flex-col md:flex-row m-auto w-fit py-5">
@@ -110,16 +43,9 @@ const Hero = () => {
           </p>
           <button
             onClick={download}
-            disabled={downloading}
             className="w-56 h-12 font-bold rounded-full border-2 border-blue-500 relative flex items-center justify-center"
           >
-            {downloading ? (
-              <>
-                <div className="spinner"></div>
-              </>
-            ) : (
-              "Download CV"
-            )}
+            Download CV
           </button>
 
           <div className="flex flex-row gap-4 mt-5">
@@ -151,10 +77,10 @@ const Hero = () => {
         </div>
       </div>
 
-      <Details herosection={herosection} />
-      <Services herosection={herosection} />
+      <Details herosection={[herosectiondata]} />
+      <Services herosection={[herosectiondata]} />
       <Works />
-      <Experience herosection={herosection} />
+      <Experience herosection={[herosectiondata]} />
       <Skills />
       <Blogs />
       <Connect />

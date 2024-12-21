@@ -4,7 +4,7 @@ import axiosInstance from "../Services/apiResponce";
 import { baseurl } from "../Services/baseurl";
 import { endpoint } from "../Services/endpoint";
 
-const Services = ({herosection}) => {
+const Services = ({ herosection }) => {
   const getdata = () => {
     async function any() {
       var a = await fetch("base/api");
@@ -14,14 +14,9 @@ const Services = ({herosection}) => {
 
     function newdata1(a, b) {
       let sum = a + b;
-
     }
   };
   getdata();
-
-
-
-
 
   return (
     <div>
@@ -38,35 +33,27 @@ const Services = ({herosection}) => {
         <div class="flex flex-col">
           <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
-            <h1 class="text-5xl w-[550px] font-bold">
-              {herosection[0]?.Positions[0]}
-            </h1>
-            <p class="w-[550px]">{herosection[0]?.Positionsdetails}</p>
+            <h1 class="text-5xl w-[550px] font-bold">UI/UX Design</h1>
+            <p class="w-[550px]">Branding Design</p>
           </div>
 
           <hr className="w-[82%] m-auto" />
           <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
-            <h1 class="text-5xl w-[550px] font-bold">
-              {herosection[0]?.Positions[1]}
-            </h1>
-            <p class="w-[550px]">{herosection[0]?.Positionsdetails}</p>
+            <h1 class="text-5xl w-[550px] font-bold">React</h1>
+            <p class="w-[550px]"> React</p>
           </div>
           <hr className="w-[82%] m-auto" />
           <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
-            <h1 class="text-5xl w-[550px] font-bold">
-              {herosection[0]?.Positions[2]}
-            </h1>
-            <p class="w-[550px]">{herosection[0]?.Positionsdetails}</p>
+            <h1 class="text-5xl w-[550px] font-bold">Node.js</h1>
+            <p class="w-[550px]">node.js</p>
           </div>
           <hr className="w-[82%] m-auto" />
           <div class="item flex flex-row py-10 px-10 gap-5 justify-center items-center hover:text-white hover:bg-gradient-to-r from-violet-500 to-violet-950 w-fit m-auto">
             <h4 class="text-2xl font-semibold">01</h4>
-            <h1 class="text-5xl w-[550px] font-bold">
-              {herosection[0]?.Positions[3]}
-            </h1>
-            <p class="w-[550px]">{herosection[0]?.Positionsdetails}</p>
+            <h1 class="text-5xl w-[550px] font-bold">Mongodb</h1>
+            <p class="w-[550px]"> Mongodb</p>
           </div>
           <hr className="w-[82%] m-auto" />
         </div>
