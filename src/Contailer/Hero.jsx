@@ -18,7 +18,7 @@ const Hero = () => {
   };
 
   const download = () => {
-    const blob = new Blob([], { type: "application/pdf" }); // Replace with actual content if needed
+    const blob = new Blob([], { type: "application/pdf" });
     const blobUrl = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = blobUrl;
@@ -29,7 +29,22 @@ const Hero = () => {
   };
 
   return (
-    <div>
+    <div className="relative">
+      {/* Snowfall Effect */}
+      <div className="snowflakes" aria-hidden="true">
+        <div className="snowflake">❅</div>
+        <div className="snowflake">❅</div>
+        <div className="snowflake">❆</div>
+        <div className="snowflake">❄</div>
+        <div className="snowflake">❅</div>
+        <div className="snowflake">❆</div>
+        <div className="snowflake">❄</div>
+        <div className="snowflake">❅</div>
+        <div className="snowflake">❆</div>
+        <div className="snowflake">❄</div>
+      </div>
+
+      {/* Hero Section */}
       <div className="flex flex-col md:flex-row m-auto w-fit py-5">
         <div className="w-full lg:w-[830px] mt-10 flex flex-col gap-5">
           <h4 className="text-4xl font-bold text-blue-900">
