@@ -1,24 +1,15 @@
 import React, { useState } from "react";
 import { tabData } from "./work/sample";
 import { motion, AnimatePresence } from "framer-motion";
-import musicplayer from '../Assects/images/Screenshot 2024-12-21 162209.png';
+import ImageGallery from './images/ImageGallery';  
 
 const Works = () => {
   const [activeTab, setActiveTab] = useState(1);
 
-  // Updated images array with the required properties
-  const images = [
-    {
-      url: musicplayer, // Path to the image
-      redirectUrl: "#", // Example URL, replace with the desired link
-      key: "Music Player",
-    },
-  ];
-
   return (
     <div>
       <div>
-        <div className=" flex flex-col gap-4">
+        <div className="flex flex-col gap-4">
           <h1 className="text-5xl py-10 mt-5 text-blue-800 font-bold text-center">
             My Quality Services
           </h1>
@@ -37,7 +28,7 @@ const Works = () => {
                 className={`mr-2 rounded-full py-5 focus:outline-none ${
                   activeTab === tab.id
                     ? "bg-violet-700 text-white"
-                    : " text-gray-700"
+                    : "text-gray-700"
                 }`}
                 onClick={() => setActiveTab(tab.id)}
                 whileHover={{ scale: 1.05 }}
@@ -61,23 +52,7 @@ const Works = () => {
                       transition={{ duration: 0.3 }}
                       className="w-full"
                     >
-                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-5">
-                        {images.map((image, index) => (
-                          <a
-                            key={index}
-                            href={image.redirectUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group"
-                          >
-                            <img
-                              src={image.url}
-                              className="rounded-lg w-full h-auto object-cover transition-transform duration-300 transform group-hover:scale-105 group-hover:shadow-lg shadow-lg"
-                              alt={image.key}
-                            />
-                          </a>
-                        ))}
-                      </div>
+                      <ImageGallery /> {/* Here we render the ImageGallery component */}
                     </motion.div>
                   )
               )}
