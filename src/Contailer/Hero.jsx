@@ -17,16 +17,23 @@ const Hero = () => {
     details: "I specialize in creating innovative solutions and building scalable web applications.",
   };
 
-  const download = () => {
-    const blob = new Blob([], { type: "application/pdf" });
-    const blobUrl = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.href = blobUrl;
-    link.setAttribute("download", "Amar Kumar Prajapati.pdf");
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
+  const download = async () => {
+    const pdfUrl = "/src/Assects/pdf/Amar_Kumar_Prajapati.pdf";
+    try {
+      const response = await fetch(pdfUrl);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "Amar_Kumar_Prajapati.pdf");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Error downloading file:", error);
+    }
   };
+  
 
   return (
     <div className="relative">
